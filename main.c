@@ -16,7 +16,32 @@ void download_image(int chunk_x, int chunk_y, char *folder)
     system(string_url);
 }
 
-int main(void)
+int compare_image(int chunk_x, int chunk_y, char *date_1, char *date_2)
+{
+    char compare[120];
+
+    sprintf(compare, "compare %s/chunk%d_%d.png %s/chunk%d_%d.png chunk%d_%d", date_1, chunk_x, chunk_y, date_2, chunk_x, chunk_y, chunk_x, chunk_y);
+    system(compare);
+}
+
+int compare(char **argv)
+{
+    char folder[20];
+    char mkdir_folder[40];
+    char mv_file[50];
+
+    sprintf(folder, "%s-%s", argv[1], argv[2]);
+    sprintf(mkdir_folder, "mkdir %s", folder);
+    system(mkdir_folder);
+    for (int i = MIN_CHUNK; i < MAX_CHUNK; i++)
+        for (int j = MIN_CHUNK; j < MAX_CHUNK; j++)
+            compare_image(i, j, argv[1], argv[2]);
+    sprintf(mv_file, "mv chunk* %s/", folder);
+    system(mv_file);
+    return 0;
+}
+
+int main(int argc, char **argv)
 {
     char folder[25];
     char mkdir_folder[35];
@@ -25,6 +50,8 @@ int main(void)
     struct tm tm = *localtime(&t);
     char mv_folder[80];
 
+    if (argc == 3)
+        return compare(argv);
     sprintf(folder, "%02d:%02d:%02d", tm.tm_mday, tm.tm_mon, 1900 + tm.tm_year);
     sprintf(mkdir_folder, "mkdir %s", folder);
     system(mkdir_folder);
@@ -35,4 +62,5 @@ int main(void)
     system(mv_pngs);
     sprintf(mv_folder, "mv %s ~/delivery/tek1/hub/compare_maps/find-enemies/", folder); // <-- way to the repository
     system(mv_folder);
+    return 0;
 }
