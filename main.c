@@ -3,8 +3,8 @@
 #include <string.h>
 #include <time.h>
 
-#define MIN_CHUNK -8
-#define MAX_CHUNK 8
+#define MIN_CHUNK -5
+#define MAX_CHUNK 5
 
 void download_image(int chunk_x, int chunk_y, char *folder)
 {
@@ -23,6 +23,7 @@ int main(void)
     char mv_pngs[35];
     time_t t = time(NULL);
     struct tm tm = *localtime(&t);
+    char mv_folder[80];
 
     sprintf(folder, "%02d:%02d:%02d", tm.tm_mday, tm.tm_mon, 1900 + tm.tm_year);
     sprintf(mkdir_folder, "mkdir %s", folder);
@@ -32,4 +33,6 @@ int main(void)
             download_image(i, j, folder);
     sprintf(mv_pngs, "mv *.png %s", folder);
     system(mv_pngs);
+    sprintf(mv_folder, "mv %s ~/delivery/tek1/hub/compare_maps/find-enemies/", folder); // <-- way to the repository
+    system(mv_folder);
 }
