@@ -60,7 +60,7 @@ int main(int argc, char **argv)
             download_image(i, j, folder);
     sprintf(mv_pngs, "mv *.png %s", folder);
     system(mv_pngs);
-    sprintf(mv_folder, "mv %s ~/delivery/tek1/hub/compare_maps/find-enemies/", folder); // <-- way to the repository
+    sprintf(mv_folder, "mv %s ~/delivery/tek1/hub/compare_maps/find-enemies/", folder); // <-- path to the repository
     system(mv_folder);
     return 0;
 }
