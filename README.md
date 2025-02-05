@@ -32,10 +32,13 @@ have fun !
 # Example
 
 03/01/2025  :
+
 ![alt text](https://github.com/TitouanCastor/find-enemies/blob/main/03%3A01%3A2025/chunk-1_-1.png)
 
 04/01/2025  :
+
 ![alt text](https://github.com/TitouanCastor/find-enemies/blob/main/04%3A01%3A2025/chunk-1_-1.png)
 
 result      :
+
 ![alt text](https://github.com/TitouanCastor/find-enemies/blob/main/03%3A01%3A2025-04%3A01%3A2025/chunk-1_-1)
