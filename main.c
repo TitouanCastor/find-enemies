@@ -51,10 +51,10 @@ int compare(char **argv)
     for (int i = MIN_CHUNK; i < MAX_CHUNK; i++)
         for (int j = MIN_CHUNK; j < MAX_CHUNK; j++)
             compare_image(i, j, argv[1], argv[2]);
-    for (int i = MIN_CHUNK; i < MAX_CHUNK; i++)
-        cat_x(i, folder);
     sprintf(mv_file, "mv chunk* %s/", folder);
     system(mv_file);
+    for (int i = MIN_CHUNK; i < MAX_CHUNK; i++)
+        cat_x(i, folder);
     system("convert x_-10 x_-9 x_-8 x_-7 x_-6 x_-5 x_-4 x_-3 x_-2 x_-1 x_0 x_1 x_2 x_3 x_4 x_5 x_6 x_7 x_8 x_9 +append 0_map");
     sprintf(mv_map, "mv 0_map %s/ && rm -f x_*", folder);
     system(mv_map);
