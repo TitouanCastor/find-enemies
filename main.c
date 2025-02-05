@@ -24,11 +24,26 @@ int compare_image(int chunk_x, int chunk_y, char *date_1, char *date_2)
     system(compare);
 }
 
+int cat_x(int chunk_x, char *folder)
+{
+    char convert[1000];
+
+    sprintf(convert, "convert %s/chunk%d_-10 %s/chunk%d_-9 %s/chunk%d_-8 %s/chunk%d_-7 %s/chunk%d_-6 %s/chunk%d_-5 \
+    %s/chunk%d_-4 %s/chunk%d_-3 %s/chunk%d_-2 %s/chunk%d_-1 %s/chunk%d_0 %s/chunk%d_1 %s/chunk%d_2 %s/chunk%d_3 \
+    %s/chunk%d_4 %s/chunk%d_5 %s/chunk%d_6 %s/chunk%d_7 %s/chunk%d_8 %s/chunk%d_9 -append x_%d", 
+    folder, chunk_x, folder, chunk_x, folder, chunk_x, folder, chunk_x, folder, chunk_x, folder, chunk_x,
+    folder, chunk_x, folder, chunk_x, folder, chunk_x, folder, chunk_x, folder, chunk_x, folder, chunk_x,
+    folder, chunk_x, folder, chunk_x, folder, chunk_x, folder, chunk_x, folder, chunk_x, folder, chunk_x,
+    folder, chunk_x, folder, chunk_x, chunk_x);
+    system(convert);
+}
+
 int compare(char **argv)
 {
     char folder[20];
     char mkdir_folder[40];
     char mv_file[50];
+    char mv_map[50];
 
     sprintf(folder, "%s-%s", argv[1], argv[2]);
     sprintf(mkdir_folder, "mkdir %s", folder);
@@ -36,8 +51,13 @@ int compare(char **argv)
     for (int i = MIN_CHUNK; i < MAX_CHUNK; i++)
         for (int j = MIN_CHUNK; j < MAX_CHUNK; j++)
             compare_image(i, j, argv[1], argv[2]);
+    for (int i = MIN_CHUNK; i < MAX_CHUNK; i++)
+        cat_x(i, folder);
     sprintf(mv_file, "mv chunk* %s/", folder);
     system(mv_file);
+    system("convert x_-10 x_-9 x_-8 x_-7 x_-6 x_-5 x_-4 x_-3 x_-2 x_-1 x_0 x_1 x_2 x_3 x_4 x_5 x_6 x_7 x_8 x_9 +append 0_map");
+    sprintf(mv_map, "mv 0_map %s/ && rm -f x_*", folder);
+    system(mv_map);
     return 0;
 }
 
@@ -60,7 +80,7 @@ int main(int argc, char **argv)
             download_image(i, j, folder);
     sprintf(mv_pngs, "mv *.png %s", folder);
     system(mv_pngs);
-    sprintf(mv_folder, "mv %s ~/delivery/tek1/hub/compare_maps/find-enemies/", folder); // <-- path to the repository
+    sprintf(mv_folder, "mv %s ~/delivery/tek1/hub/find-enemies/", folder); // <-- path to the repository
     system(mv_folder);
     return 0;
 }
