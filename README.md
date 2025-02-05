@@ -5,11 +5,6 @@ Let me guess, you enjoy playing on ATF to fight people online but you struggle t
 
 # Usage
 
-First things first, you have to open the main.c file to edit the 63th line, write the path to your repository, it will be useful later
-
-You then have to download imagemagick by executing this command : "sudo apt install imagemagick"
-for more information : https://github.com/ImageMagick/ImageMagick
-
 "Find enemies" has two utilities :
 
 - Download the dynamap and store it in a folder
@@ -31,3 +26,14 @@ Then we have to compare these maps :
 
 I've left two maps so you can do your own tests before trying out for real, 
 have fun !
+
+# Exemple
+
+03/01/2025 :
+![alt text](https://github.com/TitouanCastor/find-enemies/blob/main/03%3A01%3A2025/chunk-1_-1.png)
+
+04/01/2025 :
+![alt text](https://github.com/TitouanCastor/find-enemies/blob/main/04%3A01%3A2025/chunk-1_-1.png)
+
+result :
+![alt text](https://github.com/TitouanCastor/find-enemies/blob/main/03%3A01%3A2025-04%3A01%3A2025/chunk-1_-1)

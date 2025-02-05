@@ -3,8 +3,8 @@
 #include <string.h>
 #include <time.h>
 
-#define MIN_CHUNK -5
-#define MAX_CHUNK 5
+#define MIN_CHUNK -10
+#define MAX_CHUNK 10
 
 void download_image(int chunk_x, int chunk_y, char *folder)
 {
