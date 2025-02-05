@@ -3,6 +3,10 @@
 
 Let me guess, you enjoy playing on ATF to fight people online but you struggle to find their bases ? Let me introduce my "Find enemies" project. With this tool you can compare the dynamap each day to find where people have left blocks to easily track them down !
 
+# Prerequisites
+
+To use "Find enemies" you need to download the [ImageMagick](https://github.com/ImageMagick/ImageMagick) tool by executing this command : "sudo apt install imagemagick"
+
 # Usage
 
 "Find enemies" has two utilities :
