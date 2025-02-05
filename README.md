@@ -21,8 +21,10 @@ Then we have to compare these maps :
 
 - First you have to call the make rule (make / make re)
 - Then you have to execute the "find-enemies" binary followed by the name of the two folders you wan't to compare
-- The new map will be stored in a folder named by the two parameters you gave
+- The new map will be stored in a folder named by the two parameters you gave, the entire map is in the "0_map" file.
 - In the new folder, the map will be whiter than usual and every bloc that was different on both maps will be coloured in red
+
+This process can lead to errors, sometime because the map didn't download entirely but don't worry it'll still work, the map may be a little deformed tho.
 
 I've left two maps so you can do your own tests before trying out for real, 
 have fun !
