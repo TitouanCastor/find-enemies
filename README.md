@@ -35,14 +35,14 @@ have fun !
 
 # Example
 
-03/01/2025  :
+05/01/2025  :
 
-![alt text](https://github.com/TitouanCastor/find-enemies/blob/main/03%3A01%3A2025/chunk-1_-1.png)
+![alt text](https://github.com/TitouanCastor/find-enemies/blob/main/screenshots/05)
 
-04/01/2025  :
+06/01/2025  :
 
-![alt text](https://github.com/TitouanCastor/find-enemies/blob/main/04%3A01%3A2025/chunk-1_-1.png)
+![alt text](https://github.com/TitouanCastor/find-enemies/blob/main/screenshots/06)
 
 result      :
 
-![alt text](https://github.com/TitouanCastor/find-enemies/blob/main/03%3A01%3A2025-04%3A01%3A2025/chunk-1_-1)
+![alt text](https://github.com/TitouanCastor/find-enemies/blob/main/screenshots/chunk4_2)
