@@ -30,7 +30,6 @@ Then we have to compare these maps :
 
 This process can lead to errors, sometime because the map didn't download entirely but don't worry it'll still work, the map may be a little deformed tho.
 
-I've left two maps so you can do your own tests before trying out for real, 
 have fun !
 
 # Example

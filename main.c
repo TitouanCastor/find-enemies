@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <unistd.h>
 
 #define MIN_CHUNK -10
 #define MAX_CHUNK 10
@@ -69,15 +70,21 @@ int main(int argc, char **argv)
     time_t t = time(NULL);
     struct tm tm = *localtime(&t);
     char mv_folder[80];
+    char *waiting[8] = {"petit temp d'attente", "faudrait pas se blesser", "on y est bientôt !", "Lund deban moi par pitié",
+    "fais pas l'impatient tu fais rien de ta vie", "encore un peu !", "Gaël fais 6 fougasses de haut", "Oui c'est 1 seconde à chaque fois oui"};
 
     if (argc == 3)
         return compare(argv);
     sprintf(folder, "%02d:%02d:%02d", tm.tm_mday, tm.tm_mon, 1900 + tm.tm_year);
     sprintf(mkdir_folder, "mkdir %s", folder);
     system(mkdir_folder);
-    for (int i = MIN_CHUNK; i < MAX_CHUNK; i++)
-        for (int j = MIN_CHUNK; j < MAX_CHUNK; j++)
+    for (int i = MIN_CHUNK; i < MAX_CHUNK; i++) {
+        for (int j = MIN_CHUNK; j < MAX_CHUNK; j++) {
             download_image(i, j, folder);
+            printf("%s\n", waiting[rand() % 8]);
+            sleep(1);
+        }
+    }
     sprintf(mv_pngs, "mv *.png %s", folder);
     system(mv_pngs);
     sprintf(mv_folder, "mv %s ~/delivery/tek1/hub/find-enemies/", folder); // <-- path to the repository
